@@ -1,4 +1,4 @@
-package kh.com.penhchet.sonicawall;
+package kh.com.penhchet.sonicwall;
 
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
