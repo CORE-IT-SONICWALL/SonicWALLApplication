@@ -1,13 +1,8 @@
 package kh.com.penhchet.sonicwall;
 
-import java.io.*;
-import java.util.Collection;
-import java.util.Map;
-
-import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVRecord;
+import kh.com.penhchet.sonicwall.models.Log;
+import kh.com.penhchet.sonicwall.services.LogService;
 import org.elasticsearch.client.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -15,27 +10,26 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 
-import kh.com.penhchet.sonicwall.models.Log;
-import kh.com.penhchet.sonicwall.services.LogService;
+import java.util.Map;
 
 @SpringBootApplication
 public class SonicWallApplication implements CommandLineRunner {
-	
+
     @Autowired
     private ElasticsearchOperations es;
 
     @Autowired
     private LogService logService;
 
-	public static void main(String[] args) {
-		SpringApplication.run(SonicWallApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SonicWallApplication.class, args);
+    }
 
-	@Override
-	public void run(String... arg0) throws Exception {
-		printElasticSearchInfo();
+    @Override
+    public void run(String... arg0) throws Exception {
+        printElasticSearchInfo();
 
-		//TODO: READING LOG FROM CSV FILE AND THEN SAVE TO THE ELASTIC_SEARCH
+        //TODO: READING LOG FROM CSV FILE AND THEN SAVE TO THE ELASTIC_SEARCH
 //        String csvFile = "Sample_Log_File_CSV_1.csv";
 //        Reader reader = new FileReader(csvFile);
 //        Iterable<CSVRecord> records = (CSVFormat.EXCEL).parse(reader);
@@ -91,9 +85,9 @@ public class SonicWallApplication implements CommandLineRunner {
 //            logService.save(log);
 //        }
 
-		Iterable<Log> logs = logService.findAll();
+        Iterable<Log> logs = logService.findAll();
 
-		System.out.println("Total Size ==> " + Lists.newArrayList(logs).size());
+        System.out.println("Total Size ==> " + Lists.newArrayList(logs).size());
 
         logs.forEach(x -> System.out.println(x));
 
