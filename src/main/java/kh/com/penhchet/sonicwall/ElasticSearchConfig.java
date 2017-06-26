@@ -22,7 +22,7 @@ import java.net.InetAddress;
 @Configuration
 @EnableElasticsearchRepositories(basePackages = "kh.com.penhchet.sonicwall.repositories")
 @ComponentScan(basePackages = {"kh.com.penhchet.sonicwall.services"})
-public class EsConfig {
+public class ElasticSearchConfig {
 
     @Value("${elasticsearch.host}")
     private String EsHost;

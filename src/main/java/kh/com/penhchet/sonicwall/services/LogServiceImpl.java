@@ -21,4 +21,9 @@ public class LogServiceImpl implements LogService{
 	public Log save(Log log) {
 		return logRepository.save(log);
 	}
+
+	@Override
+	public Iterable<Log> findByGroup(String group) {
+		return logRepository.findByGroup(group);
+	}
 }

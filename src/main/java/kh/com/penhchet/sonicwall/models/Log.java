@@ -2,355 +2,503 @@ package kh.com.penhchet.sonicwall.models;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
 
-@Document(indexName = "sonicwall", type = "logs")
+import javax.annotation.Generated;
+import java.util.UUID;
+
+@Document(indexName = "sonicwall", type = "logs", shards = 5, replicas = 1)
 public class Log {
+
 	@Id
+	private String id;
+	private String logID;
 	private String Time;
-	private String ID;
-	private String Category;
-	private String Group;
-	private String Event;
-	private String MsgType;
-	private String Priority;
-	private String EtherType;
-	private String SrcMAC;
-	private String SrcInt;
-	private String SrcZone;
-	private String DstMAC;
-	private String DstInt;
-	private String DstZone;
-	private String SrcIP;
-	private String SrcPort;
-	private String SrcName;
-	private String SrcNATIP;
-	private String SrcNATPort;
-	private String InSPI;
-	private String DstIP;
-	private String DstPort;
-	private String DstName;
-	private String DstNATIP;
-	private String DstNATPort;
-	private String OutSPI;
-	private String IPProtocol;
-	private String ICMPType;
-	private String ICMPCode;
-	private String RXBytes;
-	private String TXBytes;
-	private String AccessRule;
-	private String NATPolicy;
-	private String UserName;
-	private String SessionTime;
-	private String SessionType;
-	private String IDPRule;
-	private String IDPPriority;
-	private String HTTPOP;
-	private String URL;
-	private String VPNPolicy;
-	private String HTTPResult;
-	private String BlockCat;
-	private String Application;
-	private String FWAction;
-	private String Notes;
-	private String Message;
-	
+	private String category;
+	private String group;
+	private String event;
+	private String msgType;
+	private String priority;
+	private String etherType;
+	private String srcMAC;
+	private String srcInt;
+	private String srcZone;
+	private String dstMAC;
+	private String dstInt;
+	private String dstZone;
+	private String srcIP;
+	private String srcPort;
+	private String srcName;
+	private String srcNATIP;
+	private String srcNATPort ;
+	private String inSPI;
+	private String dstIP;
+	private String dstPort;
+	private String dstName;
+	private String dstNATIP;
+	private String dstNATPort;
+	private String outSPI;
+	private String ipProtocol;
+	private String icmpType;
+	private String icmpCode;
+	private String rxBytes;
+	private String txBytes;
+	private String accessRule;
+	private String natPolicy;
+	private String userName;
+	private String sessionTime;
+	private String sessionType;
+	private String idpRule;
+	private String idpPriority;
+	private String httpPOP;
+	private String url;
+	private String vpnPolicy;
+	private String httpResult;
+	private String blockCat;
+	private String application;
+	private String fwAction;
+	private String notes;
+	private String message;
+
+	public Log(){
+		id = UUID.randomUUID().toString();
+	}
+
+	public String getLogID() {
+		return logID;
+	}
+
+	public void setLogID(String logID) {
+		this.logID = logID;
+	}
+
 	public String getTime() {
 		return Time;
 	}
+
 	public void setTime(String time) {
 		Time = time;
 	}
-	public String getID() {
-		return ID;
+
+	public String getId() {
+		return id;
 	}
-	public void setID(String iD) {
-		ID = iD;
+
+	public void setId(String id) {
+		this.id = id;
 	}
+
 	public String getCategory() {
-		return Category;
+		return category;
 	}
+
 	public void setCategory(String category) {
-		Category = category;
+		this.category = category;
 	}
+
 	public String getGroup() {
-		return Group;
+		return group;
 	}
+
 	public void setGroup(String group) {
-		Group = group;
+		this.group = group;
 	}
+
 	public String getEvent() {
-		return Event;
+		return event;
 	}
+
 	public void setEvent(String event) {
-		Event = event;
+		this.event = event;
 	}
+
 	public String getMsgType() {
-		return MsgType;
+		return msgType;
 	}
+
 	public void setMsgType(String msgType) {
-		MsgType = msgType;
+		this.msgType = msgType;
 	}
+
 	public String getPriority() {
-		return Priority;
+		return priority;
 	}
+
 	public void setPriority(String priority) {
-		Priority = priority;
+		this.priority = priority;
 	}
+
 	public String getEtherType() {
-		return EtherType;
+		return etherType;
 	}
+
 	public void setEtherType(String etherType) {
-		EtherType = etherType;
+		this.etherType = etherType;
 	}
+
 	public String getSrcMAC() {
-		return SrcMAC;
+		return srcMAC;
 	}
+
 	public void setSrcMAC(String srcMAC) {
-		SrcMAC = srcMAC;
+		this.srcMAC = srcMAC;
 	}
+
 	public String getSrcInt() {
-		return SrcInt;
+		return srcInt;
 	}
+
 	public void setSrcInt(String srcInt) {
-		SrcInt = srcInt;
+		this.srcInt = srcInt;
 	}
+
 	public String getSrcZone() {
-		return SrcZone;
+		return srcZone;
 	}
+
 	public void setSrcZone(String srcZone) {
-		SrcZone = srcZone;
+		this.srcZone = srcZone;
 	}
+
 	public String getDstMAC() {
-		return DstMAC;
+		return dstMAC;
 	}
+
 	public void setDstMAC(String dstMAC) {
-		DstMAC = dstMAC;
+		this.dstMAC = dstMAC;
 	}
+
 	public String getDstInt() {
-		return DstInt;
+		return dstInt;
 	}
+
 	public void setDstInt(String dstInt) {
-		DstInt = dstInt;
+		this.dstInt = dstInt;
 	}
+
 	public String getDstZone() {
-		return DstZone;
+		return dstZone;
 	}
+
 	public void setDstZone(String dstZone) {
-		DstZone = dstZone;
+		this.dstZone = dstZone;
 	}
+
 	public String getSrcIP() {
-		return SrcIP;
+		return srcIP;
 	}
+
 	public void setSrcIP(String srcIP) {
-		SrcIP = srcIP;
+		this.srcIP = srcIP;
 	}
+
 	public String getSrcPort() {
-		return SrcPort;
+		return srcPort;
 	}
+
 	public void setSrcPort(String srcPort) {
-		SrcPort = srcPort;
+		this.srcPort = srcPort;
 	}
+
 	public String getSrcName() {
-		return SrcName;
+		return srcName;
 	}
+
 	public void setSrcName(String srcName) {
-		SrcName = srcName;
+		this.srcName = srcName;
 	}
+
 	public String getSrcNATIP() {
-		return SrcNATIP;
+		return srcNATIP;
 	}
+
 	public void setSrcNATIP(String srcNATIP) {
-		SrcNATIP = srcNATIP;
+		this.srcNATIP = srcNATIP;
 	}
+
 	public String getSrcNATPort() {
-		return SrcNATPort;
+		return srcNATPort;
 	}
+
 	public void setSrcNATPort(String srcNATPort) {
-		SrcNATPort = srcNATPort;
+		this.srcNATPort = srcNATPort;
 	}
+
 	public String getInSPI() {
-		return InSPI;
+		return inSPI;
 	}
+
 	public void setInSPI(String inSPI) {
-		InSPI = inSPI;
+		this.inSPI = inSPI;
 	}
+
 	public String getDstIP() {
-		return DstIP;
+		return dstIP;
 	}
+
 	public void setDstIP(String dstIP) {
-		DstIP = dstIP;
+		this.dstIP = dstIP;
 	}
+
 	public String getDstPort() {
-		return DstPort;
+		return dstPort;
 	}
+
 	public void setDstPort(String dstPort) {
-		DstPort = dstPort;
+		this.dstPort = dstPort;
 	}
+
 	public String getDstName() {
-		return DstName;
+		return dstName;
 	}
+
 	public void setDstName(String dstName) {
-		DstName = dstName;
+		this.dstName = dstName;
 	}
+
 	public String getDstNATIP() {
-		return DstNATIP;
+		return dstNATIP;
 	}
+
 	public void setDstNATIP(String dstNATIP) {
-		DstNATIP = dstNATIP;
+		this.dstNATIP = dstNATIP;
 	}
+
 	public String getDstNATPort() {
-		return DstNATPort;
+		return dstNATPort;
 	}
+
 	public void setDstNATPort(String dstNATPort) {
-		DstNATPort = dstNATPort;
+		this.dstNATPort = dstNATPort;
 	}
+
 	public String getOutSPI() {
-		return OutSPI;
+		return outSPI;
 	}
+
 	public void setOutSPI(String outSPI) {
-		OutSPI = outSPI;
+		this.outSPI = outSPI;
 	}
-	public String getIPProtocol() {
-		return IPProtocol;
+
+	public String getIpProtocol() {
+		return ipProtocol;
 	}
-	public void setIPProtocol(String iPProtocol) {
-		IPProtocol = iPProtocol;
+
+	public void setIpProtocol(String ipProtocol) {
+		this.ipProtocol = ipProtocol;
 	}
-	public String getICMPType() {
-		return ICMPType;
+
+	public String getIcmpType() {
+		return icmpType;
 	}
-	public void setICMPType(String iCMPType) {
-		ICMPType = iCMPType;
+
+	public void setIcmpType(String icmpType) {
+		this.icmpType = icmpType;
 	}
-	public String getICMPCode() {
-		return ICMPCode;
+
+	public String getIcmpCode() {
+		return icmpCode;
 	}
-	public void setICMPCode(String iCMPCode) {
-		ICMPCode = iCMPCode;
+
+	public void setIcmpCode(String icmpCode) {
+		this.icmpCode = icmpCode;
 	}
-	public String getRXBytes() {
-		return RXBytes;
+
+	public String getRxBytes() {
+		return rxBytes;
 	}
-	public void setRXBytes(String rXBytes) {
-		RXBytes = rXBytes;
+
+	public void setRxBytes(String rxBytes) {
+		this.rxBytes = rxBytes;
 	}
-	public String getTXBytes() {
-		return TXBytes;
+
+	public String getTxBytes() {
+		return txBytes;
 	}
-	public void setTXBytes(String tXBytes) {
-		TXBytes = tXBytes;
+
+	public void setTxBytes(String txBytes) {
+		this.txBytes = txBytes;
 	}
+
 	public String getAccessRule() {
-		return AccessRule;
+		return accessRule;
 	}
+
 	public void setAccessRule(String accessRule) {
-		AccessRule = accessRule;
+		this.accessRule = accessRule;
 	}
-	public String getNATPolicy() {
-		return NATPolicy;
+
+	public String getNatPolicy() {
+		return natPolicy;
 	}
-	public void setNATPolicy(String nATPolicy) {
-		NATPolicy = nATPolicy;
+
+	public void setNatPolicy(String natPolicy) {
+		this.natPolicy = natPolicy;
 	}
+
 	public String getUserName() {
-		return UserName;
+		return userName;
 	}
+
 	public void setUserName(String userName) {
-		UserName = userName;
+		this.userName = userName;
 	}
+
 	public String getSessionTime() {
-		return SessionTime;
+		return sessionTime;
 	}
+
 	public void setSessionTime(String sessionTime) {
-		SessionTime = sessionTime;
+		this.sessionTime = sessionTime;
 	}
+
 	public String getSessionType() {
-		return SessionType;
+		return sessionType;
 	}
+
 	public void setSessionType(String sessionType) {
-		SessionType = sessionType;
+		this.sessionType = sessionType;
 	}
-	public String getIDPRule() {
-		return IDPRule;
+
+	public String getIdpRule() {
+		return idpRule;
 	}
-	public void setIDPRule(String iDPRule) {
-		IDPRule = iDPRule;
+
+	public void setIdpRule(String idpRule) {
+		this.idpRule = idpRule;
 	}
-	public String getIDPPriority() {
-		return IDPPriority;
+
+	public String getIdpPriority() {
+		return idpPriority;
 	}
-	public void setIDPPriority(String iDPPriority) {
-		IDPPriority = iDPPriority;
+
+	public void setIdpPriority(String idpPriority) {
+		this.idpPriority = idpPriority;
 	}
-	public String getHTTPOP() {
-		return HTTPOP;
+
+	public String getHttpPOP() {
+		return httpPOP;
 	}
-	public void setHTTPOP(String hTTPOP) {
-		HTTPOP = hTTPOP;
+
+	public void setHttpPOP(String httpPOP) {
+		this.httpPOP = httpPOP;
 	}
-	public String getURL() {
-		return URL;
+
+	public String getUrl() {
+		return url;
 	}
-	public void setURL(String uRL) {
-		URL = uRL;
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
-	public String getVPNPolicy() {
-		return VPNPolicy;
+
+	public String getVpnPolicy() {
+		return vpnPolicy;
 	}
-	public void setVPNPolicy(String vPNPolicy) {
-		VPNPolicy = vPNPolicy;
+
+	public void setVpnPolicy(String vpnPolicy) {
+		this.vpnPolicy = vpnPolicy;
 	}
-	public String getHTTPResult() {
-		return HTTPResult;
+
+	public String getHttpResult() {
+		return httpResult;
 	}
-	public void setHTTPResult(String hTTPResult) {
-		HTTPResult = hTTPResult;
+
+	public void setHttpResult(String httpResult) {
+		this.httpResult = httpResult;
 	}
+
 	public String getBlockCat() {
-		return BlockCat;
+		return blockCat;
 	}
+
 	public void setBlockCat(String blockCat) {
-		BlockCat = blockCat;
+		this.blockCat = blockCat;
 	}
+
 	public String getApplication() {
-		return Application;
+		return application;
 	}
+
 	public void setApplication(String application) {
-		Application = application;
+		this.application = application;
 	}
-	public String getFWAction() {
-		return FWAction;
+
+	public String getFwAction() {
+		return fwAction;
 	}
-	public void setFWAction(String fWAction) {
-		FWAction = fWAction;
+
+	public void setFwAction(String fwAction) {
+		this.fwAction = fwAction;
 	}
+
 	public String getNotes() {
-		return Notes;
+		return notes;
 	}
+
 	public void setNotes(String notes) {
-		Notes = notes;
+		this.notes = notes;
 	}
+
 	public String getMessage() {
-		return Message;
+		return message;
 	}
+
 	public void setMessage(String message) {
-		Message = message;
+		this.message = message;
 	}
+
 	@Override
 	public String toString() {
-		return "Log [Time=" + Time + ", ID=" + ID + ", Category=" + Category + ", Group=" + Group + ", Event=" + Event
-				+ ", MsgType=" + MsgType + ", Priority=" + Priority + ", EtherType=" + EtherType + ", SrcMAC=" + SrcMAC
-				+ ", SrcInt=" + SrcInt + ", SrcZone=" + SrcZone + ", DstMAC=" + DstMAC + ", DstInt=" + DstInt
-				+ ", DstZone=" + DstZone + ", SrcIP=" + SrcIP + ", SrcPort=" + SrcPort + ", SrcName=" + SrcName
-				+ ", SrcNATIP=" + SrcNATIP + ", SrcNATPort=" + SrcNATPort + ", InSPI=" + InSPI + ", DstIP=" + DstIP
-				+ ", DstPort=" + DstPort + ", DstName=" + DstName + ", DstNATIP=" + DstNATIP + ", DstNATPort="
-				+ DstNATPort + ", OutSPI=" + OutSPI + ", IPProtocol=" + IPProtocol + ", ICMPType=" + ICMPType
-				+ ", ICMPCode=" + ICMPCode + ", RXBytes=" + RXBytes + ", TXBytes=" + TXBytes + ", AccessRule="
-				+ AccessRule + ", NATPolicy=" + NATPolicy + ", UserName=" + UserName + ", SessionTime=" + SessionTime
-				+ ", SessionType=" + SessionType + ", IDPRule=" + IDPRule + ", IDPPriority=" + IDPPriority + ", HTTPOP="
-				+ HTTPOP + ", URL=" + URL + ", VPNPolicy=" + VPNPolicy + ", HTTPResult=" + HTTPResult + ", BlockCat="
-				+ BlockCat + ", Application=" + Application + ", FWAction=" + FWAction + ", Notes=" + Notes
-				+ ", Message=" + Message + "]";
+		return "Log{" +
+				"logID='" + logID + '\'' +
+				", Time='" + Time + '\'' +
+				", id='" + id + '\'' +
+				", category='" + category + '\'' +
+				", group='" + group + '\'' +
+				", event='" + event + '\'' +
+				", msgType='" + msgType + '\'' +
+				", priority='" + priority + '\'' +
+				", etherType='" + etherType + '\'' +
+				", srcMAC='" + srcMAC + '\'' +
+				", srcInt='" + srcInt + '\'' +
+				", srcZone='" + srcZone + '\'' +
+				", dstMAC='" + dstMAC + '\'' +
+				", dstInt='" + dstInt + '\'' +
+				", dstZone='" + dstZone + '\'' +
+				", srcIP='" + srcIP + '\'' +
+				", srcPort='" + srcPort + '\'' +
+				", srcName='" + srcName + '\'' +
+				", srcNATIP='" + srcNATIP + '\'' +
+				", srcNATPort='" + srcNATPort + '\'' +
+				", inSPI='" + inSPI + '\'' +
+				", dstIP='" + dstIP + '\'' +
+				", dstPort='" + dstPort + '\'' +
+				", dstName='" + dstName + '\'' +
+				", dstNATIP='" + dstNATIP + '\'' +
+				", dstNATPort='" + dstNATPort + '\'' +
+				", outSPI='" + outSPI + '\'' +
+				", ipProtocol='" + ipProtocol + '\'' +
+				", icmpType='" + icmpType + '\'' +
+				", icmpCode='" + icmpCode + '\'' +
+				", rxBytes='" + rxBytes + '\'' +
+				", txBytes='" + txBytes + '\'' +
+				", accessRule='" + accessRule + '\'' +
+				", natPolicy='" + natPolicy + '\'' +
+				", userName='" + userName + '\'' +
+				", sessionTime='" + sessionTime + '\'' +
+				", sessionType='" + sessionType + '\'' +
+				", idpRule='" + idpRule + '\'' +
+				", idpPriority='" + idpPriority + '\'' +
+				", httpPOP='" + httpPOP + '\'' +
+				", url='" + url + '\'' +
+				", vpnPolicy='" + vpnPolicy + '\'' +
+				", httpResult='" + httpResult + '\'' +
+				", blockCat='" + blockCat + '\'' +
+				", application='" + application + '\'' +
+				", fwAction='" + fwAction + '\'' +
+				", notes='" + notes + '\'' +
+				", message='" + message + '\'' +
+				'}';
 	}
-	
 }

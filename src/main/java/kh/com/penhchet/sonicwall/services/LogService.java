@@ -8,4 +8,6 @@ public interface LogService {
 	
     Iterable<Log> findAll();
 
+    Iterable<Log> findByGroup(String group);
+
 }
